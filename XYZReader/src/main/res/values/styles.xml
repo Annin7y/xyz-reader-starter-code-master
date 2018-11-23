@@ -18,6 +18,8 @@
 <resources>
 
     <style name="AppTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowExitTransition">@transition/list_explode_exit</item>
+        <item name="android:windowContentTransitions">true</item>
 
     </style>
 
