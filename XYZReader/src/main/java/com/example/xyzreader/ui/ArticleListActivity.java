@@ -176,7 +176,7 @@ public class ArticleListActivity extends AppCompatActivity implements
             Picasso.with(context)
                     .load(mCursor.getString(ArticleLoader.Query.THUMB_URL))
                     .error(R.drawable.user_placeholder_error)
-                    .into(h);
+                    .into(holder.thumbnailView);
 
             Date publishedDate = parsePublishedDate();
             if (!publishedDate.before(START_OF_EPOCH.getTime())) {
