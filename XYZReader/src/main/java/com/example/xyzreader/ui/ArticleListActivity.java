@@ -208,6 +208,8 @@ public class ArticleListActivity extends AppCompatActivity implements
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
+
+        //replaced DynamicHeightNetworkImageView
         public ThreeTwoImageView thumbnailView;
         public TextView titleView;
         public TextView subtitleView;
