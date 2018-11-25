@@ -18,12 +18,15 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 import android.os.Bundle;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ShareCompat;
 import android.support.v7.graphics.Palette;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.text.format.DateUtils;
 import android.text.method.LinkMovementMethod;
+import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -142,6 +145,7 @@ public class ArticleDetailFragment extends Fragment implements
 //                updateStatusBar();
 //            }
 //        });
+
 
         mPhotoView = (ImageView) mRootView.findViewById(R.id.photo);
 
