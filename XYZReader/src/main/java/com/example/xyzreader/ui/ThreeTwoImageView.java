@@ -10,7 +10,7 @@ public class ThreeTwoImageView extends AppCompatImageView {
     //code copied and pasted from:
     //https://github.com/udacity/ud862-samples/blob/master/Unsplash/app/src/main/java/com/example/android/unsplash/ui/ThreeTwoImageView.java
 
-        public ThreeTwoImageView(Context context) {
+    public ThreeTwoImageView(Context context) {
         super(context);
     }
 

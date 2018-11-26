@@ -18,6 +18,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 import android.os.Bundle;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ShareCompat;
@@ -66,6 +67,7 @@ public class ArticleDetailFragment extends Fragment implements
 
     private int mTopInset;
     private View mPhotoContainerView;
+    private View collapsingToolbarLayout;
     private ImageView mPhotoView;
     private int mScrollY;
     private boolean mIsCard = false;
@@ -146,6 +148,8 @@ public class ArticleDetailFragment extends Fragment implements
 //            }
 //        });
 
+
+        collapsingToolbarLayout = (CollapsingToolbarLayout) mRootView.findViewById(R.id.fragment_collapsing);
 
         mPhotoView = (ImageView) mRootView.findViewById(R.id.photo);
 
