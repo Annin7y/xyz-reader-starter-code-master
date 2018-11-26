@@ -9,6 +9,9 @@ import android.view.View;
 
 public class ScrollAwareFABBehavior extends FloatingActionButton.Behavior {
 
+    //code copied and pasted from:
+   // https://medium.com/@beraldofilippo/android-coordinatorlayout-scroll-aware-fab-f0c6264a5ed1
+
     public ScrollAwareFABBehavior(Context context, AttributeSet attrs) {
         // This is mandatory if we're assigning the behavior straight from XML
         super();
