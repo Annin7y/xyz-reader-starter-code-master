@@ -33,6 +33,7 @@
             android:paddingRight="16dp"
             android:paddingBottom="4dp"
             android:textColor="@color/mid_black"
+            android:textSize="20sp"
             android:ellipsize="end"
             android:maxLines="4" />
 
@@ -44,7 +45,8 @@
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
             android:paddingBottom="16dp"
-            android:textColor="#6000"
+            android:textColor="#66212020"
+            android:textSize="16sp"
             android:maxLines="2"
             android:ellipsize="end" />
     </LinearLayout>
