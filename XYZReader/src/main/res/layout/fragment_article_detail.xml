@@ -27,14 +27,14 @@
                     android:id="@+id/photo_container"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/photo_placeholder">
+                    android:background="@color/photo_placeholder"
+                    app:layout_collapseMode="parallax">
                     <!--suppress AndroidLintContentDescription -->
                     <ImageView
                         android:id="@+id/photo"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:adjustViewBounds="true"
-                        app:layout_collapseMode="parallax"
                         android:scaleType="centerCrop" />
 
                     <View
