@@ -1,5 +1,6 @@
 package com.example.xyzreader.ui;
 
+import android.app.ActionBar;
 import android.app.Fragment;
 import android.app.LoaderManager;
 import android.content.Context;
@@ -106,6 +107,7 @@ public class ArticleDetailFragment extends Fragment implements
         mStatusBarFullOpacityBottom = getResources().getDimensionPixelSize(
                 R.dimen.detail_card_top_margin);
         setHasOptionsMenu(true);
+
     }
 
     public ArticleDetailActivity getActivityCast() {
@@ -128,6 +130,17 @@ public class ArticleDetailFragment extends Fragment implements
             Bundle savedInstanceState) {
         mRootView = inflater.inflate(R.layout.fragment_article_detail, container, false);
 
+        mFragmentToolbar = (Toolbar) mRootView.findViewById(R.id.fragment_toolbar);
+
+        mFragmentToolbar.setNavigationIcon(R.drawable.ic_keyboard_backspace_black_24dp);
+
+        mFragmentToolbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               finish();
+            }
+        });
+
 //        mDrawInsetsFrameLayout = (DrawInsetsFrameLayout)
 //                mRootView.findViewById(R.id.draw_insets_frame_layout);
 //        mDrawInsetsFrameLayout.setOnInsetsCallback(new DrawInsetsFrameLayout.OnInsetsCallback() {
@@ -148,14 +161,11 @@ public class ArticleDetailFragment extends Fragment implements
 //            }
 //        });
 
-
         collapsingToolbarLayout = (CollapsingToolbarLayout) mRootView.findViewById(R.id.fragment_collapsing);
 
         mPhotoView = (ImageView) mRootView.findViewById(R.id.photo);
 
         mStatusBarColorDrawable = new ColorDrawable(0);
-
-        mFragmentToolbar = (Toolbar) mRootView.findViewById(R.id.fragment_toolbar);
 
         mRootView.findViewById(R.id.share_fab).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -170,10 +180,15 @@ public class ArticleDetailFragment extends Fragment implements
         bindViews();
         updateStatusBar();
         return mRootView;
+
+
+
     }
+
 
     private void updateStatusBar() {
         int color = 0;
+
         if (mPhotoView != null && mTopInset != 0 && mScrollY > 0) {
             float f = progress(mScrollY,
                     mStatusBarFullOpacityBottom - mTopInset * 3,
