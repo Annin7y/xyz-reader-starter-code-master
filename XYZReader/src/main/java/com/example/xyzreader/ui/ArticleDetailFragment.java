@@ -137,7 +137,9 @@ public class ArticleDetailFragment extends Fragment implements
         mFragmentToolbar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               finish();
+
+                //  getActivity().onBackPressed();
+                getActivity().finish();
             }
         });
 
