@@ -130,18 +130,24 @@ public class ArticleDetailFragment extends Fragment implements
             Bundle savedInstanceState) {
         mRootView = inflater.inflate(R.layout.fragment_article_detail, container, false);
 
+        collapsingToolbarLayout = (CollapsingToolbarLayout) mRootView.findViewById(R.id.fragment_collapsing);
+
         mFragmentToolbar = (Toolbar) mRootView.findViewById(R.id.fragment_toolbar);
 
-        mFragmentToolbar.setNavigationIcon(R.drawable.ic_keyboard_backspace_black_24dp);
+        getActivityCast().setSupportActionBar(mFragmentToolbar);
+        getActivityCast().getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getActivityCast().getSupportActionBar().setHomeButtonEnabled(true);
+
+//        mFragmentToolbar.setNavigationIcon(R.drawable.ic_keyboard_backspace_black_24dp);
 
         mFragmentToolbar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                //  getActivity().onBackPressed();
-                getActivity().finish();
+                getActivity().onBackPressed();
             }
         });
+
 
 //        mDrawInsetsFrameLayout = (DrawInsetsFrameLayout)
 //                mRootView.findViewById(R.id.draw_insets_frame_layout);
@@ -162,8 +168,6 @@ public class ArticleDetailFragment extends Fragment implements
 //                updateStatusBar();
 //            }
 //        });
-
-        collapsingToolbarLayout = (CollapsingToolbarLayout) mRootView.findViewById(R.id.fragment_collapsing);
 
         mPhotoView = (ImageView) mRootView.findViewById(R.id.photo);
 
