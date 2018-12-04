@@ -131,7 +131,7 @@ public class ArticleDetailFragment extends Fragment implements
         mRootView = inflater.inflate(R.layout.fragment_article_detail, container, false);
 
         collapsingToolbarLayout = (CollapsingToolbarLayout) mRootView.findViewById(R.id.fragment_collapsing);
-        ((CollapsingToolbarLayout) collapsingToolbarLayout).setExpandedTitleColor(Color.TRANSPARENT);
+
         mFragmentToolbar = (Toolbar) mRootView.findViewById(R.id.fragment_toolbar);
 
         getActivityCast().setSupportActionBar(mFragmentToolbar);
@@ -248,6 +248,7 @@ public class ArticleDetailFragment extends Fragment implements
             mRootView.animate().alpha(1);
            // titleView.setText(mCursor.getString(ArticleLoader.Query.TITLE));
             mFragmentToolbar.setTitle(mCursor.getString(ArticleLoader.Query.TITLE));
+           // ((CollapsingToolbarLayout) collapsingToolbarLayout).setExpandedTitleColor(Color.TRANSPARENT);
             Date publishedDate = parsePublishedDate();
             if (!publishedDate.before(START_OF_EPOCH.getTime())) {
                 bylineView.setText(Html.fromHtml(
