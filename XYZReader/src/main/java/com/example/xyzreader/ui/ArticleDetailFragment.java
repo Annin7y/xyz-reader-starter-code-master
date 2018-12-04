@@ -131,20 +131,19 @@ public class ArticleDetailFragment extends Fragment implements
         mRootView = inflater.inflate(R.layout.fragment_article_detail, container, false);
 
         collapsingToolbarLayout = (CollapsingToolbarLayout) mRootView.findViewById(R.id.fragment_collapsing);
-
+        ((CollapsingToolbarLayout) collapsingToolbarLayout).setExpandedTitleColor(Color.TRANSPARENT);
         mFragmentToolbar = (Toolbar) mRootView.findViewById(R.id.fragment_toolbar);
 
         getActivityCast().setSupportActionBar(mFragmentToolbar);
         getActivityCast().getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getActivityCast().getSupportActionBar().setHomeButtonEnabled(true);
 
-//        mFragmentToolbar.setNavigationIcon(R.drawable.ic_keyboard_backspace_black_24dp);
-
         mFragmentToolbar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 getActivity().onBackPressed();
+
             }
         });
 
@@ -187,10 +186,7 @@ public class ArticleDetailFragment extends Fragment implements
         updateStatusBar();
         return mRootView;
 
-
-
     }
-
 
     private void updateStatusBar() {
         int color = 0;
@@ -238,7 +234,7 @@ public class ArticleDetailFragment extends Fragment implements
             return;
         }
 
-        TextView titleView = (TextView) mRootView.findViewById(R.id.article_title);
+      //  TextView titleView = (TextView) mRootView.findViewById(R.id.article_title);
         TextView bylineView = (TextView) mRootView.findViewById(R.id.article_byline);
         bylineView.setMovementMethod(new LinkMovementMethod());
         TextView bodyView = (TextView) mRootView.findViewById(R.id.article_body);
@@ -250,7 +246,8 @@ public class ArticleDetailFragment extends Fragment implements
             mRootView.setAlpha(0);
             mRootView.setVisibility(View.VISIBLE);
             mRootView.animate().alpha(1);
-            titleView.setText(mCursor.getString(ArticleLoader.Query.TITLE));
+           // titleView.setText(mCursor.getString(ArticleLoader.Query.TITLE));
+            mFragmentToolbar.setTitle(mCursor.getString(ArticleLoader.Query.TITLE));
             Date publishedDate = parsePublishedDate();
             if (!publishedDate.before(START_OF_EPOCH.getTime())) {
                 bylineView.setText(Html.fromHtml(
@@ -277,7 +274,6 @@ public class ArticleDetailFragment extends Fragment implements
                     .error(R.drawable.user_placeholder_error)
                     .into(mPhotoView);
 
-
 //            ImageLoaderHelper.getInstance(getActivity()).getImageLoader()
 //                    .get(mCursor.getString(ArticleLoader.Query.PHOTO_URL), new ImageLoader.ImageListener() {
 //                        @Override
@@ -298,9 +294,10 @@ public class ArticleDetailFragment extends Fragment implements
 //
 //                        }
 //                    });
+
         } else {
             mRootView.setVisibility(View.GONE);
-            titleView.setText("N/A");
+            //titleView.setText("N/A");
             bylineView.setText("N/A" );
             bodyView.setText("N/A");
         }
